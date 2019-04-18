@@ -94,7 +94,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>EditAuthorServlet</servlet-name>
-        <url-pattern>/editauthor</url-pattern>
+        <url-pattern>/edit_author</url-pattern>
     </servlet-mapping>
 
     <servlet>

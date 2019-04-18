@@ -18,7 +18,10 @@ public class UpdateAuthorServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String name=request.getParameter("author_name");
+        int id=Integer.parseInt(request.getParameter("author_id"));
+        db.updateAuthor(id,name);
+        response.sendRedirect("load?mod_page=mauthor");
     }
 
 

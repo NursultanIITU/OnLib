@@ -49,8 +49,6 @@ public class UserFilter implements Filter {
 
         if(moderator!=null){
             Moderator tmpModerator=db.getModeratorByEmailAndPassword(moderator.getEmail(),moderator.getPassword());
-            System.out.println(moderator);
-
             if(tmpModerator!=null){
                 modOnline=true;
                 System.out.println("Moderator Online");

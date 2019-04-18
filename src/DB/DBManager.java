@@ -307,5 +307,15 @@ public class DBManager {
         }
     }
 
+    public void updateAuthor(int id,String name){
+        try{
+            Statement st=conn.createStatement();
+            String sql="UPDATE authors SET author_name=\""+name+"\" WHERE id=\""+id+"\"";
+            int rowsUpdated=st.executeUpdate(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
 }

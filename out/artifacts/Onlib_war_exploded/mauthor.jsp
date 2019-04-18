@@ -49,7 +49,7 @@
         <td><%=a.getReg_date()%></td>
         <td><%=a.getUpdate_date()%></td>
         <td class="center">
-            <a href="editauthor?author_id=<%=a.getId()%>"><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button></a>
+            <a href="edit_author?author_id=<%=a.getId()%>"><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button></a>
             <a href="deleteauthor?author_id=<%=a.getId()%>" onclick="return confirm('Are you sure you want to delete?');"><button class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</button></a>
         </td>
     </tr>
@@ -84,14 +84,14 @@
         $('#example').DataTable();
     } );
 
-    $(document).ready(function() {
-        var table = $('#example').DataTable();
-
-        $('#example tbody').on('click', 'tr', function () {
-            var data = table.row( this ).data();
-            alert( 'You clicked on '+data[0]+'\'s row' );
-        } );
-    } );
+    // $(document).ready(function() {
+    //     var table = $('#example').DataTable();
+    //
+    //     $('#example tbody').on('click', 'tr', function () {
+    //         var data = table.row( this ).data();
+    //         alert( 'You clicked on '+data[0]+'\'s row' );
+    //     } );
+    // } );
 
 
 </script>

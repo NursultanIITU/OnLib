@@ -21,10 +21,9 @@ public class EditAuthorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
           int author_id=Integer.parseInt(request.getParameter("author_id"));
           Authors author=db.getAuthorByID(author_id);
-           System.out.println(author);
 
-              request.setAttribute("editauthor", author);
-              request.getRequestDispatcher("editauthor.jsp");
+          request.setAttribute("editauthor", author);
+          request.getRequestDispatcher("editauthor.jsp").forward(request,response);
 
     }
 }
