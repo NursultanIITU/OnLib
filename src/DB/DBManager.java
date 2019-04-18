@@ -317,5 +317,53 @@ public class DBManager {
         }
     }
 
+    public void deleteCategory(int id){
+        try{
+            Statement st=conn.createStatement();
+            String sql="DELETE FROM categories WHERE id=\""+id+"\"";
+            int rowsUpdated = st.executeUpdate(sql);
+            if (rowsUpdated == 0) {
+                System.out.println("categories does not exist");
+            } else {
+                System.out.println("categories deleted");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public Categories getCategoryByID(int category_id){
+        Categories foundcategory=null;
+        try{
+            Statement st=conn.createStatement();
+            ResultSet rs=st.executeQuery("SELECT id, name, status, creation_date,updation_date FROM categories WHERE id=\""+category_id+"\"");
+
+            while (rs.next()){
+                int aid=rs.getInt("id");
+                String name=rs.getString("name");
+                int status=rs.getInt("status");
+                String creation_date=rs.getString("creation_date");
+                String updation_Date=rs.getString("updation_date");
+
+                Categories c=new Categories(aid,name, status,creation_date,updation_Date);
+                foundcategory=c;
+            }
+            st.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return foundcategory;
+    }
+
+    public void updateCategory(int id,String name, int status){
+        try{
+            Statement st=conn.createStatement();
+            String sql="UPDATE categories SET name=\""+name+"\", status=\""+status+"\"  WHERE id=\""+id+"\"";
+            int rowsUpdated=st.executeUpdate(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
 }
