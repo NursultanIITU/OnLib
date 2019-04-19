@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/font-awesome.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Add Auhtor</title>
+    <title>Edit Author</title>
 </head>
 <body>
 <div class="container">

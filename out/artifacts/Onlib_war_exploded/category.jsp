@@ -32,7 +32,7 @@
     %>
     <form action="to_add_category" method="post" class="well">
         <div class="form-group ">
-            <label>Author Name</label>
+            <label>Category Name</label>
             <input type="text"  name="cname" class="form-control">
         </div>
         <div class="form-group">
