@@ -1,8 +1,6 @@
 package DB;
-import entities.Authors;
-import entities.Categories;
-import entities.Moderator;
-import entities.Users;
+import entities.*;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -360,10 +358,51 @@ public class DBManager {
             Statement st=conn.createStatement();
             String sql="UPDATE categories SET name=\""+name+"\", status=\""+status+"\"  WHERE id=\""+id+"\"";
             int rowsUpdated=st.executeUpdate(sql);
+            st.close();
         }catch (Exception e){
             e.printStackTrace();
         }
     }
+
+    public void addBook(String book_name,int catID, int authorID, int isbn,int price){
+        try{
+            Statement st=conn.createStatement();
+            String sql="INSERT INTO books(id,book_name,catID,authorID,ISBN,price) VALUES(NULL, \""+book_name+"\",\""+catID+"\",\""+authorID+"\",\""+isbn+"\", \""+price+"\" )";
+            st.executeUpdate(sql);
+
+            st.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public List<Books> BookList(){
+        List<Books>lists=new ArrayList<Books>();
+        try{
+            Statement st=conn.createStatement();
+            ResultSet rs=st.executeQuery("SELECT books.book_name, categories.name,authors.author_name, books.ISBN, books.price, books.id as bookid from books join categories on categories.id=books.catID join authors on authors.id=books.authorID");
+
+            while(rs.next()){
+                int id=rs.getInt("bookid");
+                String bookname=rs.getString("book_name");
+                String catName=rs.getString("name");
+                String authorName=rs.getString("author_name");
+                int isbn=rs.getInt("ISBN");
+                int price=rs.getInt("price");
+
+                Books c=new Books(id,bookname,catName,authorName,isbn,price);
+                lists.add(c);
+
+            }
+            st.close();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return lists;
+
+    }
+
 
 
 }

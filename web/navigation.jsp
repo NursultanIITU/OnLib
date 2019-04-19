@@ -104,6 +104,16 @@
                 </div>
             </li>
 
+            <li id="parentDropdown3" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" data-target="#parentDropdown3" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Book
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                    <a  href="load?mod_page=addbook" class="dropdown-item">Add Book</a>
+                    <a  href="load?mod_page=mbook"class="dropdown-item" >Manage Books</a>
+                </div>
+            </li>
+
             <li id="parentDropdown2" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" data-target="#parentDropdown2" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Issue Book

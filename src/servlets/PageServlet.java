@@ -2,6 +2,7 @@ package servlets;
 
 import DB.DBManager;
 import entities.Authors;
+import entities.Books;
 import entities.Categories;
 import entities.Users;
 
@@ -81,6 +82,12 @@ public class PageServlet extends HttpServlet {
                 if(mod_page.equals("regstudents")){
                     jspPage="regstudents";
                 }
+                if(mod_page.equals("addbook")){
+                    jspPage="addbook";
+                }
+                if(mod_page.equals("mbook")){
+                    jspPage="mbook";
+                }
 
             }
             else{
@@ -94,6 +101,8 @@ public class PageServlet extends HttpServlet {
         request.setAttribute("authors", authors);
         List<Categories> categories=db.CategoryList();
         request.setAttribute("categories", categories);
+        List<Books> books=db.BookList();
+        request.setAttribute("books", books);
         List<Users> users=db.userList();
         request.setAttribute("users", users);
         System.out.println(jspPage);
