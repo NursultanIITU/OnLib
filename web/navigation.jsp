@@ -119,7 +119,7 @@
                     Issue Book
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <a  href="load?mod_page=issuenew" class="dropdown-item">Issue new Book</a>
+                    <a  href="load?mod_page=issue" class="dropdown-item">Issue new Book</a>
                     <a  href="load?mod_page=missue"class="dropdown-item" >Manage Issue Book</a>
                 </div>
             </li>

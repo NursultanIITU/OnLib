@@ -144,4 +144,22 @@
         <url-pattern>/update_category</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddBookServlet</servlet-name>
+        <servlet-class>servlets.AddBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddBookServlet</servlet-name>
+        <url-pattern>/to_add_book</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FindUserServlet</servlet-name>
+        <servlet-class>servlets.FindUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindUserServlet</servlet-name>
+        <url-pattern>/FindUserServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

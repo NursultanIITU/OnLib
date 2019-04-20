@@ -75,6 +75,10 @@ public class PageServlet extends HttpServlet {
                     jspPage="mcategory";
                 }
 
+                if(mod_page.equals("issue")){
+                    jspPage="issue";
+                }
+
                 if(mod_page.equals("missue")){
                     jspPage="missue";
                 }
