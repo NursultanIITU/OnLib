@@ -196,30 +196,33 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="to_add_user" method="post">
                     <div class="form-group">
-                        <label for="" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control">
+                        <label for="" class="col-form-label">Student ID:</label>
+                        <input type="text" name="student_id" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">Surname:</label>
-                        <input type="text" class="form-control">
+                        <label for="" class="col-form-label">Fullname:</label>
+                        <input type="text" name="full_name" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">Age:</label>
-                        <input type="text" class="form-control">
+                        <label for="" class="col-form-label">Email:</label>
+                        <input type="text" name="email" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">Country:</label>
-                        <input type="text" class="form-control">
+                        <label for="" class="col-form-label">Password:</label>
+                        <input type="password" name="password" class="form-control">
                     </div>
 
-                </form>
+
+
+
             </div>
             <div class="modal-footer">
 
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Sign Up</button>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
             </div>
         </div>
     </div>

@@ -20,7 +20,7 @@ public class DBManager {
         }
     }
 
-    public void addUser(String email, String password, String name, String surname, int age){
+   /** public void addUser(String email, String password, String name, String surname, int age){
         System.out.println("Add User");
         try{
             Statement st=conn.createStatement();
@@ -62,7 +62,7 @@ public class DBManager {
         }
         return lists;
 
-    }
+    }**/
 
     public Users getUserByEmailAndPassword(String email, String password){
         Users foundUser=null;
@@ -240,6 +240,49 @@ public class DBManager {
         }
     }
 
+    public void addUser(String student_id, String full_name, String email, String password){
+        try{
+            Statement st=conn.createStatement();
+            String sql="INSERT INTO students(id,student_id,full_name,email,password,mob_number,status,reg_date,update_date) VALUES(NULL, \""+student_id+"\",\""+full_name+"\",\""+email+"\",\""+password+"\", 54, 1, NULL, NULL )";
+            st.executeUpdate(sql);
+
+            st.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public List<Users> userList(){
+        List<Users>lists=new ArrayList<Users>();
+        try{
+            Statement st=conn.createStatement();
+            ResultSet rs=st.executeQuery("SELECT id,student_id, full_name, email,password, mob_number,status,reg_date, update_date FROM students");
+
+            while(rs.next()){
+                int id=rs.getInt("id");
+                String student_id=rs.getString("student_id");
+                String full_name=rs.getString("full_name");
+                String email=rs.getString("email");
+                String password=rs.getString("password");
+                String mobile=rs.getString("mob_number");
+                int status=rs.getInt("status");
+                String reg_date=rs.getString("reg_date");
+                String update_date=rs.getString("update_date");
+
+
+                Users u=new Users(id, student_id, full_name, email, password, mobile, status,reg_date,update_date);
+                lists.add(u);
+
+            }
+            st.close();
+
+        }catch(Exception e){
+
+        }
+        return lists;
+
+    }
+
     public List<Categories> CategoryList(){
         List<Categories>lists=new ArrayList<Categories>();
         try{
@@ -376,6 +419,8 @@ public class DBManager {
         }
     }
 
+
+
     public List<Books> BookList(){
         List<Books>lists=new ArrayList<Books>();
         try{
@@ -390,7 +435,8 @@ public class DBManager {
                 int isbn=rs.getInt("ISBN");
                 int price=rs.getInt("price");
 
-                Books c=new Books(id,bookname,catName,authorName,isbn,price);
+                Books c;
+                c = new Books(id,bookname,catName,authorName,isbn,price);
                 lists.add(c);
 
             }
