@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="assets/css/font-awesome.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="http://code.jquery.com/jquery-2.2.4.js" type="text/javascript"></script>
-    <script src="assets/js/app-ajax.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="assets/js/app-ajax.js" type="text/javascript"></script>
     <title>Issue Book</title>
 </head>
 <body>
@@ -28,12 +28,22 @@
     <form action="to_issue_book" method="post" class="well">
         <div class="form-group">
             <label>Student id<span style="color:red;">*</span></label>
-            <input class="form-control" type="text" name="studentid" id="userName" autocomplete="off"  required />
+            <input type="text" id="userName" name="studentID" class="form-control" />
         </div>
 
         <div class="form-group">
-            <span id="get_student_name" style="font-size:16px;"></span>
+            <div id="ajaxGetUserServletResponse" style="color: green;"></div>
         </div>
+
+        <div class="form-group">
+            <label>Book Name<span style="color:red;">*</span></label>
+            <input type="text" id="bookName" name="isbn" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <div id="ajaxGetBookServletResponse" style="color: green;"></div>
+        </div>
+
 
         <button type="submit" class="btn btn-success ">Save</button>
         <button type="button" class="btn btn-danger ">Close</button>
@@ -45,7 +55,6 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="assets/js/bootstrap.min.js"> </script>
 <script src="assets/js/bootstrap.bundle.js"> </script>
 </body>

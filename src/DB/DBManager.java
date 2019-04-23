@@ -403,6 +403,67 @@ public class DBManager {
 
     }
 
+    public Users getUserByID(String studentsID){
+        Users foundUser=null;
+        try{
+            Statement st=conn.createStatement();
+            ResultSet rs=st.executeQuery("SELECT id,student_id, full_name, email,password, mob_number, status, reg_date, update_date FROM students WHERE student_id=\""+studentsID+"\"");
+
+            while(rs.next()){
+                int id=rs.getInt("id");
+                String student_id=rs.getString("student_id");
+                String full_name=rs.getString("full_name");
+                String email1=rs.getString("email");
+                String password1=rs.getString("password");
+                String mob_number=rs.getString("mob_number");
+                int status=rs.getInt("status");
+                String reg_date=rs.getString("reg_date");
+                String update_date=rs.getString("update_date");
+
+                Users u=new Users(id,student_id,full_name,email1,password1,mob_number,status,reg_date,update_date);
+                foundUser=u;
+            }
+            st.close();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return foundUser;
+    }
+
+    public String getBook(String book){
+        String foundBook=null;
+        try{
+            Statement st=conn.createStatement();
+            ResultSet rs=st.executeQuery("SELECT id,book_name, ISBN, price FROM books WHERE ISBN=\""+book+"\" OR book_name=\""+book+"\"");
+
+            while(rs.next()){
+                int id=rs.getInt("id");
+                String book_name=rs.getString("book_name");
+                int isbn=rs.getInt("ISBN");
+                int price=rs.getInt("price");
+                foundBook=book_name;
+            }
+            st.close();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return foundBook;
+    }
+
+    public void addIssueBook(String studentID,int isbn){
+        try{
+            Statement st=conn.createStatement();
+            String sql="INSERT INTO issuedbooks(id,studentID,ISBN,returnStatus) VALUES(NULL, \""+studentID+"\",\""+isbn+"\",\""+0+"\")";
+            st.executeUpdate(sql);
+
+            st.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
 
 }

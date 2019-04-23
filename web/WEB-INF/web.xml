@@ -154,12 +154,32 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>FindUserServlet</servlet-name>
-        <servlet-class>servlets.FindUserServlet</servlet-class>
+        <servlet-name>GetUserServlet</servlet-name>
+        <servlet-class>servlets.GetUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>FindUserServlet</servlet-name>
-        <url-pattern>/FindUserServlet</url-pattern>
+        <servlet-name>GetUserServlet</servlet-name>
+        <url-pattern>/GetUserServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetBookServlet</servlet-name>
+        <servlet-class>servlets.GetBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetBookServlet</servlet-name>
+        <url-pattern>/GetBookServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ToIssueBookServlet</servlet-name>
+        <servlet-class>servlets.ToIssueBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ToIssueBookServlet</servlet-name>
+        <url-pattern>/to_issue_book</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>
