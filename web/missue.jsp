@@ -1,6 +1,7 @@
 <%@ page import="entities.Authors" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entities.Categories" %>
+<%@ page import="entities.IBooks" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -36,32 +37,40 @@
         <th>Student Name</th>
         <th>ISBN</th>
         <th>Issued date</th>
-        <th>Updation date</th>
+        <th>Return date</th>
         <th>Action</th>
     </tr>
     </thead>
     <tbody>
-
+    <%
+        List<IBooks>ibooks=(List<IBooks>)request.getAttribute("ibooks");
+        if(ibooks!=null){
+            for(IBooks i: ibooks){
+    %>
     <tr>
-        <td>1</td>
-        <td>PHP And MySql programming	</td>
-        <td>Nursultan Serikbay</td>
-        <td>#31255</td>
-        <td>2019-03-28 23:17:04</td>
-        <td>Not Return Yet</td>
+        <td><%=i.getId()%></td>
+        <td><%=i.getBook_name()%></td>
+        <td><%=i.getStudentName()%></td>
+        <td><%=i.getIsbn()%></td>
+        <td><%=i.getIssuedDate()%></td>
+        <%
+            if(i.getReturnstatus()==1){
+        %>
+        <td><%=i.getReturnedDate()%></td>
+        <%
+            }else{
+        %>
+        <td>Not returned</td>
+        <%
+            }
+        %>
         <td><a href=""><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button></a>
         </td>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>SDP10	</td>
-        <td>Nurbol Tolegenov</td>
-        <td>#31255</td>
-        <td>2019-03-28 23:17:04</td>
-        <td>2019-03-28 23:17:04</td>
-        <td><a href=""><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button></a>
-        </td>
-    </tr>
+    <%
+            }
+        }
+    %>
 
 
 
@@ -92,17 +101,6 @@
     $(document).ready(function() {
         $('#example').DataTable();
     } );
-
-    $(document).ready(function() {
-        var table = $('#example').DataTable();
-
-        $('#example tbody').on('click', 'tr', function () {
-            var data = table.row( this ).data();
-            alert( 'You clicked on '+data[0]+'\'s row' );
-        } );
-    } );
-
-
 </script>
 </body>
 </html>

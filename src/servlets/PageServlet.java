@@ -1,10 +1,7 @@
 package servlets;
 
 import DB.DBManager;
-import entities.Authors;
-import entities.Books;
-import entities.Categories;
-import entities.Users;
+import entities.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -109,6 +106,8 @@ public class PageServlet extends HttpServlet {
         request.setAttribute("books", books);
         List<Users> users=db.userList();
         request.setAttribute("users", users);
+        List<IBooks> ibooks=db.IssuedBookList();
+        request.setAttribute("ibooks", ibooks);
         System.out.println(jspPage);
         request.getRequestDispatcher(jspPage+".jsp").forward(request,response);
     }

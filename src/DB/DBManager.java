@@ -464,6 +464,34 @@ public class DBManager {
         }
     }
 
+    public List<IBooks> IssuedBookList(){
+        List<IBooks>lists=new ArrayList<IBooks>();
+        try{
+            Statement st=conn.createStatement();
+            ResultSet rs=st.executeQuery("SELECT students.full_name,books.book_name, books.ISBN, issuedbooks.issuesDate,issuedbooks.returnDate,issuedbooks.returnStatus, issuedbooks.id as id from issuedbooks join students on students.student_id=issuedbooks.studentID join books on books.isbn=issuedbooks.ISBN");
+
+            while(rs.next()){
+                int id=rs.getInt("id");
+                String student=rs.getString("full_name");
+                String bookname=rs.getString("book_name");
+                int isbn=rs.getInt("ISBN");
+                int status=rs.getInt("returnStatus");
+                String issuesDate=rs.getString("issuesDate");
+                String returnDate=rs.getString("returnDate");
+
+                IBooks i=new IBooks(id,student,bookname,isbn,status,issuesDate,returnDate);
+                lists.add(i);
+
+            }
+            st.close();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return lists;
+
+    }
+
 
 
 }
