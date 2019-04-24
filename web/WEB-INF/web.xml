@@ -80,6 +80,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>AddPostServlet</servlet-name>
+        <servlet-class>servlets.AddPostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPostServlet</servlet-name>
+        <url-pattern>/to_add_post</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>AddCategoryServlet</servlet-name>
         <servlet-class>servlets.AddCategoryServlet</servlet-class>
     </servlet>

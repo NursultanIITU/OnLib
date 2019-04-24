@@ -89,6 +89,9 @@ public class PageServlet extends HttpServlet {
                 if(mod_page.equals("mbook")){
                     jspPage="mbook";
                 }
+                if(mod_page.equals("addpost")){
+                    jspPage="addpost";
+                }
 
             }
             else{

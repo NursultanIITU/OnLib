@@ -240,10 +240,10 @@ public class DBManager {
         }
     }
 
-    public void addUser(String student_id, String full_name, String email, String password){
+    public void addUser(String student_id, String full_name, String email, String mob_number, String password){
         try{
             Statement st=conn.createStatement();
-            String sql="INSERT INTO students(id,student_id,full_name,email,password,mob_number,status,reg_date,update_date) VALUES(NULL, \""+student_id+"\",\""+full_name+"\",\""+email+"\",\""+password+"\", 54, 1, NULL, NULL )";
+            String sql="INSERT INTO students(id,student_id,full_name,email,password,mob_number,status,reg_date,update_date) VALUES(NULL, \""+student_id+"\",\""+full_name+"\",\""+email+"\",\""+password+"\",\""+mob_number+"\", 1, NULL, NULL )";
             st.executeUpdate(sql);
 
             st.close();

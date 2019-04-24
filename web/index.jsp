@@ -129,11 +129,11 @@
                 <form action="moderator_sign_in" method="post">
                     <div class="form-group">
                         <label for="" class="col-form-label">Email:</label>
-                        <input type="text" name="email" class="form-control">
+                        <input type="email" name="email" autocomplete="off" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Password:</label>
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="password" autocomplete="off" class="form-control">
                     </div>
                     <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -159,11 +159,11 @@
                 <form  action="auth" method="post">
                     <div class="form-group">
                         <label for="" class="col-form-label">Email:</label>
-                        <input type="text" name="email" class="form-control">
+                        <input type="email" name="email" autocomplete="off" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Password:</label>
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="password" autocomplete="off" class="form-control">
                     </div>
 
                 <%
@@ -199,22 +199,33 @@
                 <form action="to_add_user" method="post">
                     <div class="form-group">
                         <label for="" class="col-form-label">Student ID:</label>
-                        <input type="text" name="student_id" class="form-control">
+                        <input type="text" name="student_id" autocomplete="off" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Fullname:</label>
-                        <input type="text" name="full_name" class="form-control">
+                        <input type="text" name="full_name" autocomplete="off" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="" class="col-form-label">Email:</label>
-                        <input type="text" name="email" class="form-control">
+                        <input type="email" name="email" autocomplete="off" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-form-label">Password:</label>
-                        <input type="password" name="password" class="form-control">
+                        <label for="" class="col-form-label">Phone number (8 7__ ___ __ __):</label>
+                        <input type="tel" name="mob_number" autocomplete="off" class="form-control" pattern="[8]{1} [7]{1}[0-9]{2} [0-9]{3} [0-9]{2} [0-9]{2}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-form-label">Password</label>
+                        <input type="password" name="password" autocomplete="off" class="form-control">
                     </div>
 
-
+                        <%
+                    String error1=request.getParameter("error");
+                    if(error!=null){
+                        if(error1.equals("1")){
+                            out.print("<b style='color:red; font-style:72px;'>Fill in all the fields</b>");
+                        }
+                    }
+                %>
 
 
             </div>

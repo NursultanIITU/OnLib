@@ -22,8 +22,9 @@ public class AddUserServlet extends HttpServlet {
         String student_id = request.getParameter("student_id");
         String full_name = request.getParameter("full_name");
         String email = request.getParameter("email");
+        String mob_number = request.getParameter("mob_number");
         String password = request.getParameter("password");
-        db.addUser(student_id, full_name, email, password);
+        db.addUser(student_id, full_name, email, mob_number, password);
 
 
         response.sendRedirect("load?page=home");
