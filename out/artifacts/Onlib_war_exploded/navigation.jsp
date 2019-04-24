@@ -123,7 +123,9 @@
                     <a  href="load?mod_page=missue"class="dropdown-item" >Manage Issue Book</a>
                 </div>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="load?mod_page=addpost">Add Post</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="load?mod_page=regstudents">Reg Students</a>
             </li>

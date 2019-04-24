@@ -82,13 +82,13 @@
                                         <div class="form-group row">
                                             <label  class="col-4 col-form-label">Enter Full Name</label>
                                             <div class="col-8">
-                                                <input id="fullname" name="fullname" placeholder="Full Name" class="form-control here" type="text" value="<%=user.getFullname()%>">
+                                                <input id="fullname" name="fullname" autocomplete="off" placeholder="Full Name" class="form-control here" type="text" value="<%=user.getFullname()%>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="text" class="col-4 col-form-label">Mobile No.</label>
                                             <div class="col-8">
-                                                <input id="text" name="mobile" placeholder="Mobile Number" class="form-control here" required="required" type="text" value="<%=user.getMob_number()%>">
+                                                <input id="text" name="mobile" autocomplete="off" placeholder="Mobile Number" class="form-control here" required="required" type="tel" value="<%=user.getMob_number()%>" pattern="[8]{1} [7]{1}[0-9]{2} [0-9]{3} [0-9]{2} [0-9]{2}" required>
                                             </div>
                                         </div>
 
